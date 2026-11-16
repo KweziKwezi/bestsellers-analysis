@@ -43,14 +43,6 @@ Exploratory data analysis of Amazon's top 50 bestselling books for each year fro
 - The most reviewed titles are *Where the Crawdads Sing* (about 87,800 reviews), *The Girl on the Train* (about 79,400), *Becoming* (about 61,100), *Gone Girl* (about 57,300) and *The Fault in Our Stars* (about 50,500).
 - Price and number of reviews have a very weak negative relationship (Spearman ρ ≈ -0.15, Pearson r ≈ -0.11): cheaper books tend to have slightly more reviews, but price explains very little of the variation.
 
-## Limitations
-
-- **The data contains no sales figures.** `Price` is a list price, so summing it measures total list price across entries, not revenue or units sold. Results should not be read as "sales".
-- **Repeat entries.** Books that appear in several years are counted several times in yearly totals, and the rows are not fully independent.
-- **Skewed review counts.** A few titles have far more reviews than the rest, which is why Spearman correlation is reported alongside Pearson.
-- **12 books have a price of 0** (possibly free editions); it is unclear whether these are real values or missing data.
-- This is descriptive analysis only. It shows patterns, not causes.
-
 ## How to run
 
 ```bash
@@ -58,11 +50,3 @@ pip install pandas seaborn matplotlib jupyter
 jupyter notebook Analysis.ipynb
 ```
 
-Place `bestsellers with categories.csv` in the same folder as the notebook.
-
-## Possible next steps
-
-- Compare average rating and price by genre across years
-- Rank titles by rating only among books with a minimum number of reviews
-- Test whether genre changes the price-review relationship
-- Build a simple model to predict review count from price, genre and year
